@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Event from './components/Event';
+import Map from './components/Map';
 
 function App()
 
@@ -10,6 +11,7 @@ function App()
     
     <div className="App">
      <Event/>
+     <Map/>
     </div>
   );
 }
