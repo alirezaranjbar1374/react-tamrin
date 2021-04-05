@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Event = () => {
     const [name,setName]=useState({firstname:"",lastname:""})
@@ -8,12 +8,18 @@ const Event = () => {
     const ali =()=>{
         alert("شما با موفقیت وارد شدید")
     }
+    const refinput = useRef();
+
+    useEffect(() => {
+        refinput.current.focus()
+
+    }, [])
     return (
         <div>
        
-          <input value={name.firstname} onChange={event=>setName({...name,firstname:event.target.value})} />
+          <input ref={refinput} placeholder="name" value={name.firstname} onChange={event=>setName({...name,firstname:event.target.value})} />
           <br/>
-          <input value={name.lastname} onChange={event=>setName({...name,lastname:event.target.value})}/>
+          <input  value={name.lastname} placeholder="family" onChange={event=>setName({...name,lastname:event.target.value})}/>
           <br/>
           <h1 style={{background:"yellow"}} >name:{name.firstname} family:{name.lastname} </h1>
           <button onClick={handleClick} >click</button>
